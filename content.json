@@ -1,0 +1,58 @@
+{
+  "site": {
+    "title": "BOOK AESTHETIC",
+    "tagline": "slow pages for a fast world",
+    "welcome": "Welcome.\nThis is a quiet corner of the internet\nfor books, poetry, coffee,\nand words that stay."
+  },
+
+  "blocks": [
+    {
+      "title": "Current Issue",
+      "subtitle": "Issue 01: Quiet Things",
+      "linkText": "open →",
+      "link": "#"
+    },
+    {
+      "title": "Morning Note",
+      "subtitle": "written with coffee",
+      "linkText": "read →",
+      "link": "#"
+    },
+    {
+      "title": "Poem",
+      "subtitle": "one page only",
+      "linkText": "open →",
+      "link": "#"
+    },
+    {
+      "title": "Audio",
+      "subtitle": "a voice from today",
+      "linkText": "listen →",
+      "link": "#"
+    },
+    {
+      "title": "Leave a Sentence",
+      "subtitle": "anonymous",
+      "linkText": "write →",
+      "link": "#"
+    },
+    {
+      "title": "Things Growing",
+      "subtitle": "plants & patience",
+      "linkText": "enter →",
+      "link": "#"
+    }
+  ],
+
+  "featured": {
+    "title": "This Week’s Companion",
+    "book": "The Old Man and the Sea",
+    "music": "on repeat",
+    "drink": "coffee"
+  },
+
+  "footer": {
+    "status": "reading",
+    "email": "youremail@example.com"
+  }
+}
