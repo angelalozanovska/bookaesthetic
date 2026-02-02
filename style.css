@@ -73,3 +73,49 @@ footer {
   font-family: Courier New, monospace;
   font-size: 12px;
 }
+/* UNDER CONSTRUCTION STICKER — CENTER */
+#construction-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+
+  pointer-events: none; /* page stays usable */
+}
+
+.construction-box {
+  text-align: center;
+  background: #fff0f5;
+  border: 4px dashed #5f4b8b;
+  padding: 26px 32px;
+  box-shadow: 8px 8px 0 #c9c4b8;
+  font-family: "Courier New", monospace;
+}
+
+.construction-box img {
+  max-width: 400px; /* bigger sticker */
+  display: block;
+  margin: 0 auto 10px;
+  image-rendering: pixelated;
+}
+
+.construction-box p {
+  margin: 0;
+  font-size: 16px;
+  color: #5f4b8b;
+  letter-spacing: 0.5px;
+}
+
+.construction-box .small {
+  font-size: 13px;
+}
+@keyframes floaty {
+  0% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-6px); }
+  100% { transform: translate(-50%, -50%) translateY(0); }
+}
+
+#construction-overlay {
+  animation: floaty 3.5s ease-in-out infinite;
+}
