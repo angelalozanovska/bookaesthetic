@@ -1,121 +1,213 @@
+/* ---------- FONTS ---------- */
+@font-face {
+  font-family: "VyazPixel";
+  src: url("fonts/VyazPixel.ttf") format("truetype");
+}
+
+#logo {
+  font-family: 'Courier New', Courier, monospace; /* system font fallback */
+  font-size: 3rem;
+  letter-spacing: 1px;
+  color: #3b2a22;
+  text-shadow: 2px 2px 0 #f0c19a; /* 90s boxy shadow */
+}
+
 body {
-  background-color: #f4f1ec;
-  font-family: Verdana, Arial, sans-serif;
-  color: #2f2f2f;
   margin: 0;
-}
-
-.container {
-  width: 760px;
-  margin: 40px auto;
-  background: #faf8f4;
-  border: 3px solid #2f3e2f;
-  padding: 24px;
-}
-
-header {
-  text-align: center;
-  border-bottom: 2px dotted #2f3e2f;
-  padding-bottom: 20px;
-}
-
-header h1 {
+  color: #3b2a22;
   font-family: "Times New Roman", Georgia, serif;
-  font-size: 48px;
-  margin: 0;
 }
 
-header p {
-  font-family: Courier New, monospace;
-  font-size: 14px;
+/* ---------- BACKGROUND ---------- */
+body.has-bg {
+  background: none; /* no image on body itself */
+  position: relative; /* needed for pseudo element layering */
 }
 
-.welcome {
-  text-align: center;
-  margin: 30px 0;
-  white-space: pre-line;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.block {
-  border: 2px solid #2f3e2f;
-  padding: 12px;
-  background: #fffdf8;
-  box-shadow: 4px 4px 0 #c9c4b8;
-  font-size: 13px;
-}
-
-.block h3 {
-  margin: 0 0 6px;
-  font-family: Georgia, serif;
-}
-
-.block p {
-  margin: 0 0 10px;
-  font-family: Courier New, monospace;
-}
-
-.featured {
-  margin: 32px 0;
-  padding: 16px;
-  border: 2px dashed #2f3e2f;
-}
-
-footer {
-  border-top: 2px dotted #2f3e2f;
-  padding-top: 16px;
-  text-align: center;
-  font-family: Courier New, monospace;
-  font-size: 12px;
-}
-/* UNDER CONSTRUCTION STICKER — CENTER */
-#construction-overlay {
+body.has-bg::before {
+  content: "";
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-
-  pointer-events: none; /* page stays usable */
+  inset: 0;
+  background-image: url("images/image.jpg"); /* your photo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1; /* adjust opacity here (0-1) */
+  z-index: -1;
 }
 
-.construction-box {
-  text-align: center;
-  background: #fff0f5;
-  border: 4px dashed #5f4b8b;
-  padding: 26px 32px;
-  box-shadow: 8px 8px 0 #c9c4b8;
-  font-family: "Courier New", monospace;
+/* ---------- PAGE ---------- */
+.page {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.construction-box img {
-  max-width: 400px; /* bigger sticker */
-  display: block;
-  margin: 0 auto 10px;
+/* ---------- BOX BASE ---------- */
+.header-box,
+.photo-box,
+.text-box {
+  background: rgb(250, 209, 155);
+  border: 2px solid #6b4b3a;
+  padding: 15px 20px;
+  margin-bottom: 25px;
+}
+
+/* ---------- HEADER ---------- */
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;      
+  background: rgb(250, 209, 155);
+  border: 2px solid #6b4b3a;
+  padding: 5px 15px;        
+  margin-bottom: 25px;
+  height: auto;             
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#visitor-count {
+  font-size: 0.9rem;
+  color: #5a4a42;
+}
+
+/* ---------- CONTENT WRAPPER ---------- */
+.content-wrapper {
+  display: flex;
+  justify-content: center; /* center the content under header */
+  max-width: 1000px;       /* match header width */
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  max-width: 100%;          /* photo + text won't exceed wrapper */
+}
+
+/* ---------- PHOTO BOX ---------- */
+.photo-box {
+  padding: 15px;
+  flex: 0 0 auto;           /* don't stretch */
+}
+
+#profile-photo {
+  width: 300px; /* desktop size */
+  border: 2px solid #6b4b3a;
   image-rendering: pixelated;
+  display: block;
 }
 
-.construction-box p {
-  margin: 0;
-  font-size: 16px;
-  color: #5f4b8b;
-  letter-spacing: 0.5px;
+/* ---------- TEXT BOX ---------- */
+.text-box {
+  max-width: calc(100% - 300px - 30px); /* total width minus photo + gap */
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box; 
 }
 
-.construction-box .small {
-  font-size: 13px;
-}
-@keyframes floaty {
-  0% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-6px); }
-  100% { transform: translate(-50%, -50%) translateY(0); }
+.divider,
+.dots {
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
-#construction-overlay {
-  animation: floaty 3.5s ease-in-out infinite;
+#intro-note {
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+/* ---------- NAV ---------- */
+.nav-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#nav-buttons a,
+.mail-box a.btn {
+  display: inline-block;
+  margin: 8px;
+  padding: 8px 16px;
+  background: rgb(250, 209, 155);
+  color: #3b2a22;
+  text-decoration: none;
+  border: 1px solid #6b4b3a;
+  box-shadow: 3px 3px 0 #3b2a22;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace; 
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+#nav-buttons a:hover,
+.mail-box a.btn:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 2px 2px 0 #3b2a22;
+}
+
+/* ---------- FOOTER ---------- */
+.last-updated {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #dcdcdc;
+  background: rgba(59, 42, 34, 0.1);
+  padding: 20px 0;
+  z-index: 10;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 700px) {
+  body.has-bg::before {
+    background-attachment: scroll;
+  }
+
+  .content-wrapper {
+    width: 100%;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;     
+    gap: 20px;
+    padding: 40px 15px;
+    box-sizing: border-box;
+  }
+
+  .photo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;     
+    padding: 20px;           
+    width: 100%;
+    box-sizing: border-box;  
+    background: rgb(250, 209, 155);
+    border: 2px solid #6b4b3a;
+    overflow: hidden;        
+  }
+
+  #profile-photo {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100% - 40px);
+    object-fit: contain;     
+    display: block;
+  }
+
+  .text-box {
+    max-width: 100%;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
 }

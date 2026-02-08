@@ -1,37 +1,36 @@
-fetch("content.json")
+fetch("./content.json")
   .then(res => res.json())
   .then(data => {
-    // Header
-    document.getElementById("site-title").textContent = data.site.title;
-    document.getElementById("site-tagline").textContent = data.site.tagline;
-    document.getElementById("welcome-text").textContent = data.site.welcome;
+    document.getElementById("profile-photo").src = data.profilePhoto;
+    document.getElementById("intro-note").textContent = data.introNote;
+    document.getElementById("last-updated").textContent = data.lastUpdated;
+    document.getElementById("visitor-count").textContent = data.visitorCount;
 
-    // Blocks
-    const blocksContainer = document.getElementById("blocks");
-    data.blocks.forEach(block => {
-      const div = document.createElement("div");
-      div.className = "block";
-      div.innerHTML = `
-        <h3>${block.title}</h3>
-        <p>${block.subtitle}</p>
-        <a href="${block.link}">${block.linkText}</a>
-      `;
-      blocksContainer.appendChild(div);
+    const nav = document.getElementById("nav-buttons");
+    data.navigation.forEach(item => {
+      const a = document.createElement("a");
+      a.href = item.link;
+      a.textContent = item.label;
+      nav.appendChild(a);
     });
-
-    // Featured
-    document.getElementById("featured-title").textContent = data.featured.title;
-    document.getElementById("featured-content").innerHTML = `
-      <strong>Book:</strong> ${data.featured.book}<br>
-      <strong>Music:</strong> ${data.featured.music}<br>
-      <strong>Drink:</strong> ${data.featured.drink}
-    `;
-
-    // Footer
-    document.getElementById("footer-status").textContent =
-      "status: " + data.footer.status;
-
-    const email = document.getElementById("email-link");
-    email.textContent = data.footer.email;
-    email.href = "mailto:" + data.footer.email;
   });
+
+function fillLine(el) {
+  const char = el.dataset.char;
+  const width = el.offsetWidth;
+
+  // approx width of monospace char
+  const charWidth = 8;
+  const count = Math.floor(width / charWidth);
+
+  el.textContent = char.repeat(count);
+}
+
+function updateLines() {
+  document
+    .querySelectorAll(".divider, .dots")
+    .forEach(fillLine);
+}
+
+window.addEventListener("resize", updateLines);
+window.addEventListener("load", updateLines);

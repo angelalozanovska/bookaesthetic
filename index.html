@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Book Aesthetic</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>book aesthetic</title>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
 </head>
-<div id="construction-overlay">
-  <div class="construction-box">
-    <img src="under_construction_PNG18.png" alt="Under Construction">
-    <p>THIS PAGE IS UNDER CONSTRUCTION</p>
-    <p class="small">come back soon ☕</p>
-  </div>
-</div>
 
-<body>
+<body class="has-bg">
 
-<div class="container">
+  <div class="page">
 
-  <header>
-    <h1 id="site-title"></h1>
-    <p id="site-tagline"></p>
-  </header>
+    <!-- HEADER BOX -->
+    <header class="header-box">
+      <h1 id="logo">book aesthetic</h1>
+      <span id="visitor-count">souls who passed through: 000123</span>
+    </header>
 
-  <div class="welcome" id="welcome-text"></div>
+    <!-- MAIN CONTENT -->
+    <main class="content-wrapper">
+      <div class="content">
+        <!-- PHOTO BOX -->
+        <div class="photo-box">
+          <img id="profile-photo" alt="me" />
+        </div>
 
-  <div class="grid" id="blocks"></div>
+        <!-- TEXT BOX -->
+        <div class="text-box">
+          <div class="divider" data-char="-"></div>
+          <p id="intro-note"></p>
+          <div class="divider" data-char="-"></div>
+        </div>
+      </div>
+    </main>
 
-  <div class="featured">
-    <h2 id="featured-title"></h2>
-    <p id="featured-content"></p>
-  </div>
 
-  <footer>
-    <div id="footer-status"></div>
-    <div>
-      send a sentence →
-      <a id="email-link"></a>
+    <!-- NAV BUTTONS -->
+    <nav class="nav-footer">
+      <div id="nav-buttons"></div>
+    </nav>
+
+
+    <!-- EMAIL -->
+    <div class="mail-box" style="text-align: center;">
+      <a href="mailto:bookaesthetic1@gmail.com" class="btn">send me a sentence that got stuck with you ^_^</a>
     </div>
-  </footer>
 
-</div>
 
-<script src="main.js"></script>
+    <!-- LAST UPDATED -->
+    <footer class="last-updated">
+     <span id="last-updated"></span>
+    </footer>
+
+  </div>
+
+  <script src="./main.js"></script>
 </body>
 </html>

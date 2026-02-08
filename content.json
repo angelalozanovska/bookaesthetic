@@ -1,40 +1,13 @@
 {
-  "site": {
-    "title": "BOOK AESTHETIC",
-    "tagline": "slow pages for a fast world",
-    "welcome": "Welcome.\nThis is a quiet corner of the internet\nfor books, poetry, coffee,\nand words that stay."
-  },
-
-  "blocks": [
-    {
-      "title": "Current Issue",
-      "subtitle": "Issue 01: Quiet Things",
-      "linkText": "open →",
-      "link": "#"
-    },
-    {
-      "title": "Morning Note",
-      "subtitle": "written with coffee",
-      "linkText": "read →",
-      "link": "#"
-    },
-    {
-      "title": "Poem",
-      "subtitle": "one page only",
-      "linkText": "open →",
-      "link": "#"
-    }
-  ],
-
-  "featured": {
-    "title": "This Week’s Companion",
-    "book": "The Old Man and the Sea",
-    "music": "on repeat",
-    "drink": "coffee"
-  },
-
-  "footer": {
-    "status": "reading",
-    "email": "youremail@example.com"
-  }
+  "profilePhoto":"./images/me.jpeg",
+  "introNote": "hey, you don’t need to rush. nothing here will ask for your attention. this is a quiet place for good books, slow thoughts, handwritten poems and time that isn’t in a hurry <3",
+  "lastUpdated": "made with love by Angela (last updated on a quiet night)",
+  "visitorCount": "souls who passed through:",
+  "navigation": [
+    { "label": "reviews", "link": "reviews.html" },
+    { "label": "poetry", "link": "poetry.html" },
+    { "label": "library", "link": "library.html" },
+    { "label": "notes", "link": "notes.html" },
+    { "label": "audio corner", "link": "audio.html" }
+  ]
 }
