@@ -112,7 +112,7 @@ body.has-bg::before {
 
 .divider,
 .dots {
-  font-family: monospace;
+  font-family: "Times New Roman", Georgia, serif;
   white-space: nowrap;
   overflow: hidden;
 }
