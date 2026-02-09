@@ -1,15 +1,10 @@
 /* ---------- FONTS ---------- */
-@font-face {
-  font-family: "VyazPixel";
-  src: url("fonts/VyazPixel.ttf") format("truetype");
-}
-
 #logo {
-  font-family: 'Courier New', Courier, monospace; /* system font fallback */
-  font-size: 3rem;
-  letter-spacing: 1px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;          /* makes it thicker like a title */
+  letter-spacing: 2px;        /* wider spacing for typewriter/book feel */
   color: #3b2a22;
-  text-shadow: 2px 2px 0 #f0c19a; /* 90s boxy shadow */
+  text-shadow: 2px 2px 0 #f0c19a; /* keeps your 90s shadow */
 }
 
 body {
@@ -55,6 +50,7 @@ body.has-bg::before {
 
 /* ---------- HEADER ---------- */
 .header-box {
+  font-family: 'Courier New', Courier, monospace;
   display: flex;
   justify-content: space-between;
   align-items: center;      
@@ -105,10 +101,18 @@ body.has-bg::before {
 .text-box {
   max-width: calc(100% - 300px - 30px); /* total width minus photo + gap */
   width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
   box-sizing: border-box; 
 }
+
+.text-box #intro-note {
+  border: 2px dashed #6b4b3a; /* the frame */
+  padding: 10px;               /* space between text and frame */
+  margin: 10px;              /* space from the box edges */
+  text-align: center;          /* optional */
+  line-height: 1.6;
+  background: rgb(250, 209, 155); /* optional: match box background */
+}
+
 
 .divider,
 .dots {
@@ -210,4 +214,20 @@ body.has-bg::before {
     line-height: 1.6;
     text-align: center;
   }
+}
+.divider-line {
+  height: 2px;
+  width: 60%;
+  margin: 12px auto;
+  background: #6b4b3a;
+  animation: breathe 4s ease-in-out infinite;
+  transform-origin: center;
+  opacity: 0.8;
+}
+
+/* subtle grow + shrink */
+@keyframes breathe {
+  0%   { width: 55%; opacity: 0.6; }
+  50%  { width: 75%; opacity: 1; }
+  100% { width: 55%; opacity: 0.6; }
 }
