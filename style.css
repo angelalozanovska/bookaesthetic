@@ -33,7 +33,7 @@ body.has-bg::before {
 
 /* ---------- PAGE ---------- */
 .page {
-  padding: 30px;
+  padding: 20px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -180,16 +180,12 @@ body.has-bg::before {
 
 /* ---------- FOOTER ---------- */
 .last-updated {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
   text-align: center;
   font-size: 1.2rem;
   color: #dcdcdc;
   background: rgba(59, 42, 34, 0.1);
-  padding: 20px 0;
-  z-index: 10;
+  padding: 40px 0;
+  margin-top: 12px;
 }
 
 /* ---------- MOBILE ---------- */
@@ -201,8 +197,8 @@ body.has-bg::before {
   .content {
     flex-direction: column;
     align-items: center;     
-    gap: 20px;
-    padding: 40px 15px;
+    gap: 5px;
+    padding: 5px 15px;
     box-sizing: border-box;
   }
 
@@ -210,6 +206,7 @@ body.has-bg::before {
     width: calc(100% - 30px);
     margin-left: 15px;
     margin-right: 15px;
+    margin-bottom: 20px;
   }
 
   .photo-box {
