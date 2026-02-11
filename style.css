@@ -145,7 +145,6 @@ body.has-bg::before {
 #intro-note em {
   display: block;      /* makes it a separate line */
   font-size: 1.1em;    /* slightly bigger */
-  font-style: italic;  /* just in case */
   margin-top: 10px;    /* some space from the line above */
   text-align: center;  /* optional, center it */
 }

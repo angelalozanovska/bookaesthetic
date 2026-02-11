@@ -1,0 +1,147 @@
+/* ---------- BACKGROUND ---------- */
+body.has-bg {
+  background: none; /* no image on body itself */
+  position: relative; /* needed for pseudo element layering */
+}
+
+body.has-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/brownnp.jpg"); /* your photo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1; /* adjust opacity here (0-1) */
+  z-index: -1;
+}
+/* ---------- BACKGROUND ---------- */
+body.has-bg {
+  background: none;
+  position: relative;
+}
+
+body.has-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/brownnp.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* ---------- PAGE ---------- */
+.review-page {
+  width: 1500px;
+  margin: 40px auto;
+  padding: 24px;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Georgia, serif;
+  color: #3b2a22;
+}
+
+/* ---------- HEADER ---------- */
+.review-header-box {
+  background: rgb(250, 209, 155);
+  border: 2px solid #6b4b3a;
+  padding: 15px 25px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.review-header-box h1 {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: 2px;
+  margin: 0 0 8px 0;
+}
+
+.review-header-box h2 {
+  font-weight: normal;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.book-category {
+  margin-top: 8px;
+  font-size: 1.2rem;
+}
+
+/* ---------- PHOTO + REVIEW ---------- */
+.review-content {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.photo-box {
+  flex: 0 0 auto;
+  padding: 15px;
+  background: rgb(250, 209, 155);
+  border: 2px solid #6b4b3a;
+}
+
+.photo-box img {
+  width: 500px;
+  max-width: 100%;
+  border: 2px solid #6b4b3a;
+  image-rendering: pixelated;
+}
+
+.text-box {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #6b4b3a;
+  background: rgb(250, 209, 155);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.text-box p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ---------- PERSONAL NOTE ---------- */
+.personal-note {
+  margin-top: 15px;
+  padding-left: 6px;
+  color: beige;
+  font-size: 1.2rem;
+}
+
+/* ---------- FOOTER ---------- */
+.review-footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.review-footer a {
+  color: beige;         /* same text color as your 90s style */
+  text-decoration: none;   /* no underline by default */
+  font-family: "Times New Roman", Georgia, serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: text-decoration 0.2s;
+}
+
+.review-footer a:hover {
+  text-decoration: underline;  /* underline only on hover */
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 700px) {
+  .review-content {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .photo-box img {
+    width: 100%;
+    max-width: 300px;
+  }
+}

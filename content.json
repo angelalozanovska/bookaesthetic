@@ -1,13 +1,13 @@
 {
   "profilePhoto":"./images/me.jpeg",
-  "introNote": "hey, you don’t need to rush.\nnothing here will ask for your attention.\n this is a quiet place for good books, slow thoughts, handwritten poems,\n and time that isn’t in a hurry. <3\n\n<em>wander. go wherever your heart tells you.</em>",
-  "lastUpdated": "made with love by Angela (last updated on a quiet night)",
-  "visitorCount": "souls who passed through:",
+  "introNote": "ејј, не мора да брзаш.\nништо тука нема да праша за твоето внимание.\n ова е тивко место за добри книги, бавни мисли, испишана поезија,\n и време кое не се брза.<3\n\nталкај. кајшто ти вели срцето.",
+  "lastUpdated": "со љубов, Ангела (последно уредено во една тивка ноќ)",
+  "visitorCount": "посетител број:",
   "navigation": [
-    { "label": "reviews", "link": "reviews.html" },
-    { "label": "poetry", "link": "poetry.html" },
-    { "label": "library", "link": "library.html" },
-    { "label": "notes", "link": "notes.html" },
-    { "label": "audio corner", "link": "audio.html" }
+    { "label": "осврти", "link": "reviews.html" },
+    { "label": "поезија", "link": "poetry.html" },
+    { "label": "библиотека", "link": "library.html" },
+    { "label": "белешки", "link": "notes.html" },
+    { "label": "аудио катче", "link": "audio.html" }
   ]
 }

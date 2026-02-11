@@ -1,0 +1,180 @@
+/* ---------- BACKGROUND ---------- */
+body.has-bg {
+  background: none; /* no image on body itself */
+  position: relative; /* needed for pseudo element layering */
+}
+
+body.has-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("images/brownnp.jpg"); /* your photo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1; /* adjust opacity here (0-1) */
+  z-index: -1;
+}
+/* ---------- BASE ---------- */
+body {
+  font-family: 'Ubuntu Mono', monospace;
+  color: #2e1f17;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- PAGE CONTAINER ---------- */
+.reviews-page {
+  width: 760px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+/* ---------- HEADER BOX ---------- */
+.reviews-header-box {
+  border: 2px solid #3b2a22;
+  padding: 16px;
+  margin-bottom: 32px;
+  /*background: #e7c698;*/
+  background: rgb(250, 209, 155);
+}
+
+.reviews-header-box h1 {
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.reviews-note {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  opacity: 0.85;
+}
+
+/* ---------- CATEGORIES BOX ---------- */
+.categories-box {
+  border: 2px solid #3b2a22;
+  padding: 16px;
+  /*background: #e7c698;*/
+  background: rgb(250, 209, 155);
+}
+
+/* ---------- CATEGORY ---------- */
+.category {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px dashed #3b2a22; /* subtle 90s line */
+    border-image: repeating-linear-gradient(
+    to right,
+    #3b2a22 0 6px,
+    transparent 6px 12px
+    ) 1;
+}
+
+.category-title {
+  font-weight: bold;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+/* remove top border for the first category */
+.category:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 16px; /* optional, still a little spacing */
+}
+
+/* ---------- BOOK LIST ---------- */
+.book {
+  margin-bottom: 10px;
+}
+
+.book-title {
+  display: block;
+}
+
+.book a {
+  text-decoration: none;
+  color: #2e1f17;
+}
+
+.book a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- FOOTER ---------- */
+.reviews-footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.reviews-footer a {
+  text-decoration: none;
+  color: beige;
+}
+
+.reviews-footer a:hover {
+  text-decoration: underline;
+}
+/* add a line between title and note */
+.reviews-header-box h1 {
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  border-bottom: 1px dashed #3b2a22; /* subtle line */
+    border-image: repeating-linear-gradient(
+    to right,
+    #3b2a22 0 6px,
+    transparent 6px 12px
+    ) 1;
+  padding-bottom: 4px;
+}
+
+/* make note stand out more */
+.reviews-note {
+  font-size: 0.95rem;
+  margin-top: 12px;
+  opacity: 0.9;
+  padding-left: 6px;        /* small indent */
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 800px) {
+  .reviews-page {
+    width: 90%;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .reviews-header-box, .categories-box {
+    padding: 12px;
+  }
+
+  .reviews-header-box h1, .category-title {
+    font-size: 1.2rem;
+  }
+
+  .book-title {
+    font-size: 0.9rem;
+  }
+}
+.reviews-footer-note {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: beige;
+  font-family: "Times New Roman", Georgia, serif;
+}
+
+.ascii {
+  display: block;
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
