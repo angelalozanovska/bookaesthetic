@@ -19,7 +19,7 @@ fetch("./reviews.json")
         bookDiv.innerHTML = `
           <span class="book-title">
             • ${book.title} —
-            <a href="./review.html?id=${book.id}">прочитај осврт→</a>
+            <a href="./review.html?id=${book.id}">прочитај осврт</a>
           </span>
         `;
 

@@ -14,6 +14,7 @@ body.has-bg::before {
   background-repeat: no-repeat;
   opacity: 1; /* adjust opacity here (0-1) */
   z-index: -1;
+  filter: brightness(0.85) saturate(0.7);
 }
 /* ---------- BACKGROUND ---------- */
 body.has-bg {
@@ -34,21 +35,22 @@ body.has-bg::before {
 
 /* ---------- PAGE ---------- */
 .review-page {
-  width: 1500px;
+  width: min(1200px, calc(100% - 32px));
   margin: 40px auto;
-  padding: 24px;
+  padding: 0;
   box-sizing: border-box;
-  font-family: "Times New Roman", Georgia, serif;
+  font-family: 'Courier New', Courier, monospace;
   color: #3b2a22;
 }
 
 /* ---------- HEADER ---------- */
 .review-header-box {
-  background: rgb(250, 209, 155);
+  background: rgb(233, 215, 200);
   border: 2px solid #6b4b3a;
   padding: 15px 25px;
   margin-bottom: 30px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .review-header-box h1 {
@@ -72,31 +74,37 @@ body.has-bg::before {
 .review-content {
   display: flex;
   gap: 30px;
-  flex-wrap: wrap;
   align-items: flex-start;
   margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .photo-box {
-  flex: 0 0 auto;
+  flex: 0 1 480px;
   padding: 15px;
-  background: rgb(250, 209, 155);
+  background: rgb(233, 215, 200);
   border: 2px solid #6b4b3a;
+  box-sizing: border-box;
 }
 
 .photo-box img {
-  width: 500px;
+  display: block;
+  width: 100%;
   max-width: 100%;
   border: 2px solid #6b4b3a;
   image-rendering: pixelated;
+  box-sizing: border-box;
 }
 
 .text-box {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   padding: 15px;
   border: 2px solid #6b4b3a;
-  background: rgb(250, 209, 155);
+  background: rgb(233, 215, 200);
   font-family: 'Courier New', Courier, monospace;
+  box-sizing: border-box;
 }
 
 .text-box p {
@@ -121,7 +129,7 @@ body.has-bg::before {
 .review-footer a {
   color: beige;         /* same text color as your 90s style */
   text-decoration: none;   /* no underline by default */
-  font-family: "Times New Roman", Georgia, serif;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 1.2rem;
   cursor: pointer;
   transition: text-decoration 0.2s;
@@ -133,15 +141,23 @@ body.has-bg::before {
 
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 700px) {
+@media (max-width: 980px) {
+  .review-page {
+    margin: 20px auto;
+  }
+
   .review-content {
     flex-direction: column;
     gap: 15px;
-    align-items: center;
+    align-items: stretch;
+  }
+
+  .photo-box,
+  .text-box {
+    width: 100%;
   }
 
   .photo-box img {
     width: 100%;
-    max-width: 300px;
   }
 }

@@ -14,10 +14,12 @@ body.has-bg::before {
   background-repeat: no-repeat;
   opacity: 1; /* adjust opacity here (0-1) */
   z-index: -1;
+  filter: brightness(0.85) saturate(0.7);
+
 }
 /* ---------- BASE ---------- */
 body {
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: 'Courier New', Courier, monospace;
   color: #2e1f17;
   margin: 0;
   padding: 0;
@@ -36,18 +38,20 @@ body {
   padding: 16px;
   margin-bottom: 32px;
   /*background: #e7c698;*/
-  background: rgb(250, 209, 155);
+  background: rgb(233, 215, 200);
 }
 
 .reviews-header-box h1 {
   margin: 0;
   letter-spacing: 2px;
+  color: #3f4348;
 }
 
 .reviews-note {
   font-size: 0.9rem;
   margin-top: 8px;
   opacity: 0.85;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 /* ---------- CATEGORIES BOX ---------- */
@@ -55,7 +59,7 @@ body {
   border: 2px solid #3b2a22;
   padding: 16px;
   /*background: #e7c698;*/
-  background: rgb(250, 209, 155);
+  background: rgb(233, 215, 200);
 }
 
 /* ---------- CATEGORY ---------- */
@@ -162,7 +166,7 @@ body {
   text-align: center;
   font-size: 1.2rem;
   color: beige;
-  font-family: "Times New Roman", Georgia, serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .ascii {

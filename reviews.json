@@ -10,6 +10,13 @@
           "author": "Михаил Булгаков",
           "cover": "books/mm.jpeg",
           "personal": "Многу долго си ја мислев по читањето, многу."
+        },
+        {
+          "id": "drakula",
+          "title": "Дракула",
+          "author": "Брам Стокер",
+          "cover": "books/drakula.jpeg",
+          "personal": "Се чита подолго, ама вреди."
         }
       ]
     },
@@ -17,6 +24,20 @@
       "id": "melancholy",
       "title": "меланхолични, како доцно попладне",
       "books": [
+         {
+          "id": "gluvciilugje",
+          "title": "Глувци и луѓе",
+          "author": "Џон Стајнбек",
+          "cover": "books/gluvciilugje.jpeg",
+          "personal": ""
+        },
+        {
+          "id": "fizikanatagata",
+          "title": "Физика на тагата",
+          "author": "Георги Господинов",
+          "cover": "books/fizikanatagata.jpg",
+          "personal": ""
+        }
       ]
     },
     {
@@ -29,6 +50,13 @@
           "author": "Мигел де Унамуно",
           "cover": "books/avel.jpg",
           "personal": ""
+        },
+         {
+          "id": "tunel",
+          "title": "Тунел",
+          "author": "Ернесто Сабато",
+          "cover": "books/tunel.jpeg",
+          "personal": ""
         }
       ]
     },
@@ -36,6 +64,13 @@
       "id": "wrong-time",
       "title": "книги кои ги сакам со цело свое срце",
       "books": [
+        {
+          "id": "belinokji",
+          "title": "Бели ноќи",
+          "author": "Достоевски",
+          "cover": "books/belinokji.jpeg",
+          "personal": "Засекогаш омилена."
+        },
         {
           "id": "lavr",
           "title": "Лавр",
@@ -48,6 +83,13 @@
           "title": "Град во облаците",
           "author": "Ентони Дор",
           "cover": "books/grad.jpg",
+          "personal": ""
+        },
+        {
+          "id": "kamenisenka",
+          "title": "Камен и сенка",
+          "author": "Бурхан Сонмез",
+          "cover": "books/kamenisenka.jpeg",
           "personal": ""
         }
       ]
@@ -62,6 +104,39 @@
           "author": "Марио де Са-Карнеиро",
           "cover": "books/lusio.jpg",
           "personal": "Ја добив како поклон од една многу драга личност. Ја прочитав за два часа, уште ме прогонува."
+        }
+      ]
+    },
+    {
+      "id": "warm",
+      "title": "топли и носталгични",
+      "books": [
+        {
+          "id": "tri_jabolka",
+          "title": "Три јаболка паднаа од небото",
+          "author": "Нарине Абгарјан",
+          "cover": "books/tri_jabolka.jpg",
+          "personal": ""
+        },
+        {
+          "id": "kafe",
+          "title": "Пред да се излади кафето",
+          "author": "Тошиказу Кавагучи",
+          "cover": "books/kafe.jpg",
+          "personal": ""
+        }
+      ]
+    },
+        {
+      "id": "fun",
+      "title": "забавни",
+      "books": [
+        {
+          "id": "mozart",
+          "title": "Моцарт 2.0",
+          "author": "Дорж Бату",
+          "cover": "books/mozart.jpeg",
+          "personal": ""
         }
       ]
     }

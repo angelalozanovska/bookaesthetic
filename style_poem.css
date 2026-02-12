@@ -1,0 +1,113 @@
+body.has-bg {
+  background: none;
+  position: relative;
+}
+
+body.has-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("poetry/plainpix.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.35);
+  z-index: -1;
+}
+
+body {
+  margin: 0;
+  color: #ffffff;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.poem-page {
+  width: min(1100px, calc(100% - 32px));
+  margin: 32px auto;
+}
+
+.poem-header {
+  margin-bottom: 20px;
+}
+
+#poem-title {
+  margin: 0;
+  color: #ffffff;
+  letter-spacing: 1px;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+}
+
+.poem-content {
+  display: flex;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.poem-photo-box,
+.poem-text-box {
+  box-sizing: border-box;
+}
+
+.poem-photo-box {
+  flex: 0 1 430px;
+  padding: 0;
+}
+
+#poem-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 78vh;
+  object-fit: cover;
+}
+
+.poem-text-box {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 0 0 8px;
+}
+
+#poem-text {
+  margin: 0;
+  white-space: pre-wrap;
+  line-height: 1.75;
+  font-size: 1.05rem;
+  font-weight: 550;
+}
+
+.poem-footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.poem-footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.poem-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+  .poem-page {
+    margin: 20px auto;
+  }
+
+  .poem-content {
+    flex-direction: column;
+  }
+
+  .poem-text-box {
+    order: 1;
+    padding: 8px 0 0 0;
+  }
+
+  .poem-photo-box {
+    order: 2;
+  }
+
+  #poem-photo {
+    max-height: 360px;
+  }
+}

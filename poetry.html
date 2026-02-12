@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mk">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>book aesthetic</title>
+  <title>poetry - book aesthetic</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./style_poetry.css" />
 </head>
 
 <body class="has-bg">
+
+  <div class="poetry-page">
+
+    <!-- HEADER -->
+    <header class="poetry-header-box">
+      <h1 id="poetry-logo">поезија</h1>
+      <p class="poetry-note">
+        тука зборовите се бавни.<br>
+        некои се мои.<br>
+        некои позајмени од оние што пишуваат убаво.
+      </p>
+    </header>
+
+    <!-- POEMS LIST -->
+    <section class="poetry-list">
+
+      <!-- MY WORDS -->
+      <div class="poetry-box">
+        <h2 class="poetry-box-title">мои зборови</h2>
+        <div id="my-words-container"></div>
+      </div>
+
+    </section>
+    <footer class="poetry-footer-note">
+    <p>
+    *се надевам некои зборови останаа со тебе* 
+    </p>
+  </footer>
+    <footer class="poetry-footer">
+      <a href="../index.html">← назад до насловна</a>
+    </footer>
+
+  </div>
+
+  <script src="./poetry.js"></script>
 </body>
 </html>

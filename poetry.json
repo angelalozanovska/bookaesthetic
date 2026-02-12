@@ -1,0 +1,43 @@
+{
+  "myWords": [
+    {
+      "id": "7min",
+      "title": "Седум минути (како се собира еден живот)",
+      "author": "",
+      "image": "poetry/7-min.jpg",
+      "note": ""
+    },
+    {
+      "id": "tamusi",
+      "title": "Таму си (обид да те ставам на хартија)",
+      "author": "",
+      "image": "poetry/tamusi.jpg",
+      "note": ""
+    },
+    {
+      "id": "ljubov",
+      "title": "Начините на кои се љуби",
+      "author": "",
+      "image": "poetry/ljubov.jpg",
+      "note": ""
+    },
+    {
+      "id": "nebo",
+      "title": "Погледни нагоре, кајшто е најмногу твое",
+      "author": "",
+      "image": "poetry/nebo.jpg",
+      "note": ""
+    }
+  ],
+
+  "borrowedWords": [
+    {
+      "id": "denicija",
+      "title": "Умилкување",
+      "author": "Петре М Андреевски",
+      "image": "images/poetry/",
+      "note": ""
+    }
+
+  ]
+}

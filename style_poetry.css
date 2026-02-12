@@ -1,0 +1,176 @@
+/* ---------- BACKGROUND ---------- */
+body.has-bg {
+  background: none;
+  position: relative;
+}
+
+body.has-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("poetry/plainpix.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: -1;
+  filter: brightness(0.85) saturate(0.7);
+
+}
+
+/* ---------- BASE ---------- */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #2e1f17;
+  margin: 0;
+  padding: 0;
+}
+
+.poetry-page {
+  width: min(1000px, calc(100% - 32px));
+  margin: 40px auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- HEADER ---------- */
+.poetry-header-box {
+  border: 2px solid #3b2a22;
+  width: min(700px, 100%);
+  padding: 12px;
+  margin-bottom: 28px;
+  margin-inline: auto;
+  box-sizing: border-box;
+  background: rgb(233, 215, 200);
+}
+
+.poetry-header-box h1 {
+  margin: 0 0 8px 0;
+  border-bottom: 1px dashed #3b2a22;
+  padding-bottom: 4px;
+  letter-spacing: 2px;
+  color: #3f4348;
+}
+
+.poetry-note {
+  font-size: 0.95rem;
+  opacity: 1;
+}
+
+/* ---------- LIST LAYOUT ---------- */
+.poetry-list {
+  width: min(700px, 100%);
+  margin-inline: auto;
+}
+
+/* both boxes same size */
+.poetry-box {
+  flex: 1 1 0;
+  min-width: 0;
+  border: 2px solid #3b2a22;
+  padding: 12px;
+  background: rgb(233, 215, 200);
+  box-sizing: border-box;
+}
+
+/* box titles */
+.poetry-box-title {
+  margin-top: 0;
+  border-bottom: 1px dashed #3b2a22; /* subtle line */
+    border-image: repeating-linear-gradient(
+    to right,
+    #3b2a22 0 6px,
+    transparent 6px 12px
+    ) 1;
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+  color: #3f4348;
+}
+
+/* ---------- CATEGORY INSIDE BOX ---------- */
+.category {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px dashed #3b2a22;
+}
+
+.category:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 12px;
+}
+
+/* ---------- FOOTER ---------- */
+.poetry-footer {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.poetry-footer a {
+  text-decoration: none;
+  color: beige;
+}
+
+.poetry-footer a:hover {
+  text-decoration: underline;
+}
+/* add a line between title and note */
+.poetry-header-box h1 {
+  margin-bottom: 8px;
+  letter-spacing: 2px;
+  border-bottom: 1px dashed #3b2a22; /* subtle line */
+    border-image: repeating-linear-gradient(
+    to right,
+    #3b2a22 0 6px,
+    transparent 6px 12px
+    ) 1;
+  padding-bottom: 4px;
+}
+.poetry-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: beige;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  box-sizing: border-box;
+}
+.poetry-footer-note {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: beige;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  box-sizing: border-box;
+}
+.read-link {
+  color: #2e1f17;   /* same dark brown/black as text */
+  text-decoration: none;
+}
+
+.read-link:hover {
+  text-decoration: underline;
+}
+
+.book {
+  margin-bottom: 10px;
+}
+
+.book:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 950px) {
+  .poetry-page {
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .poetry-box {
+    width: 100%;
+  }
+}
