@@ -28,7 +28,7 @@ body.has-bg::before {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 1; /* adjust opacity here (0-1) */
-  filter: brightness(0.85) saturate(0.6);
+  filter: brightness(0.85) saturate(0.5);
   z-index: -1;
 }
 
