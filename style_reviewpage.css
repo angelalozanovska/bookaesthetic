@@ -1,21 +1,37 @@
-/* ---------- BACKGROUND ---------- */
-body.has-bg {
-  background: none; /* no image on body itself */
-  position: relative; /* needed for pseudo element layering */
+:root {
+  /* Core ink + paper */
+  --ink: #2f241d;
+  --paper: #e8d7c5;
+  --paper-2: #dcc5ae;
+
+  /* Warm retro accents */
+  --accent: #f8b66b;
+  --accent-soft: #ffd8a8;
+  --retro-peach: #f7c6a3;
+  --retro-apricot: #ffb7a5;
+
+  /* Pastels */
+  --pastel-green: #cfeec8;
+  --pastel-green-2: #b9e3b3;
+
+  --pastel-purple: #daccf3;
+  --pastel-purple-2: #cdb9ea;
+
+  --pastel-lilac: #e8ddfb;
+  --pastel-lily:#eae2f8;;
+  --pastel-blue: #cfe3ff;
+  --pastel-dark-blue: #a2bed4;
+  --pastel-pink: #f6c1c7;
+  --pastel-yellow: #f6e7a1;
+  --pastel-peach: #f8d7c0;
+
+  /* Dusty 90s tones */
+  --dusty-teal: #8db6a1;
+  --dusty-mauve: #c49ab3;
+  --pixel-shadow: #1e1611;
 }
 
-body.has-bg::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("images/brownnp.jpg"); /* your photo */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 1; /* adjust opacity here (0-1) */
-  z-index: -1;
-  filter: brightness(0.85) saturate(0.7);
-}
+
 /* ---------- BACKGROUND ---------- */
 body.has-bg {
   background: none;
@@ -26,65 +42,80 @@ body.has-bg::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("images/brownnp.jpg");
-  background-size: cover;
+  background-image: url("images/green.jpg"); /* pastel cloud/retro pattern */
+  background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
+
+  /* pinkish/teal pastel overlay */
+  background-color: rgba(180, 240, 230, 0.25);
+  background-blend-mode: lighten;
+
+  filter: brightness(1.2) saturate(0.8);
   z-index: -1;
 }
 
-/* ---------- PAGE ---------- */
+/* ---------- BASE ---------- */
+body {
+  font-family: 'Courier New', Courier, monospace;
+  color: #3b2a22;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* ---------- PAGE CONTAINER ---------- */
 .review-page {
   width: min(1200px, calc(100% - 32px));
   margin: 40px auto;
-  padding: 0;
+  padding: 16px 24px;
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
-  color: #3b2a22;
 }
 
 /* ---------- HEADER ---------- */
 .review-header-box {
-  background: rgb(233, 215, 200);
-  border: 2px solid #6b4b3a;
-  padding: 15px 25px;
-  margin-bottom: 30px;
+  background: var(--pastel-lily); /* soft pastel green-teal */
+  border: 3px solid #3b2a22; /* retro brown border */
+  box-shadow: 5px 5px 0 #1e1611; /* pixel shadow */
+  padding: 20px 30px;
+  margin-bottom: 32px;
   text-align: center;
+  position: relative;
   box-sizing: border-box;
 }
 
 .review-header-box h1 {
-  font-family: 'Courier New', Courier, monospace;
-  letter-spacing: 2px;
   margin: 0 0 8px 0;
-}
-
-.review-header-box h2 {
-  font-weight: normal;
-  opacity: 0.85;
-  margin: 0;
+  letter-spacing: 2px;
+  color: #1e3a33; /* darker teal text for contrast */
+  border-bottom: 1px dashed #3b2a22;
+  padding-bottom: 6px;
 }
 
 .book-category {
-  margin-top: 8px;
   font-size: 1.2rem;
+  margin-top: 8px;
+  opacity: 0.9;
+  color: #3b2a22; /* brownish */
 }
 
 /* ---------- PHOTO + REVIEW ---------- */
 .review-content {
   display: flex;
-  gap: 30px;
+  gap: 24px;
   align-items: flex-start;
-  margin-bottom: 20px;
-  width: 100%;
-  box-sizing: border-box;
+  width: min(96vw, 1700px);
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 24px;
 }
 
 .photo-box {
   flex: 0 1 480px;
-  padding: 15px;
-  background: rgb(233, 215, 200);
-  border: 2px solid #6b4b3a;
+  padding: 16px;
+  background: var(--pastel-dark-blue); /* pastel green */
+  border: 3px solid #3b2a22;
+  box-shadow: 4px 4px 0 #1e1611;
   box-sizing: border-box;
 }
 
@@ -92,7 +123,7 @@ body.has-bg::before {
   display: block;
   width: 100%;
   max-width: 100%;
-  border: 2px solid #6b4b3a;
+  border: 2px solid #3b2a22;
   image-rendering: pixelated;
   box-sizing: border-box;
 }
@@ -100,58 +131,116 @@ body.has-bg::before {
 .text-box {
   flex: 1 1 0;
   min-width: 0;
-  padding: 15px;
-  border: 2px solid #6b4b3a;
-  background: rgb(233, 215, 200);
-  font-family: 'Courier New', Courier, monospace;
+  padding: 16px;
+  background: var(--pastel-peach);
+  border: 3px solid #3b2a22;
+  box-shadow: 4px 4px 0 #1e1611;
   box-sizing: border-box;
 }
 
 .text-box p {
   margin: 0;
   line-height: 1.6;
+  color: #3b2a22;
+}
+
+#book-review {
+  border: 2px dashed #3b2a22;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+/* add a subtle highlight behind important words */
+.text-box span.highlight {
+  background: #f8b66b;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #2f241d;
+  font-weight: bold;
 }
 
 /* ---------- PERSONAL NOTE ---------- */
 .personal-note {
-  margin-top: 15px;
-  padding-left: 6px;
-  color: beige;
-  font-size: 1.2rem;
+  margin-top: 16px;
+  padding: 10px 12px;
+  color: #3b2a22;
+  font-size: 1.15rem;
 }
 
 /* ---------- FOOTER ---------- */
 .review-footer {
-  margin-top: 30px;
+  margin-top: 32px;
   text-align: center;
 }
 
 .review-footer a {
-  color: beige;         /* same text color as your 90s style */
-  text-decoration: none;   /* no underline by default */
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 40px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 0;
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 6px #00000038,
+    3px 3px #00000038,
+    -3px 3px #00000038,
+    inset 0 3px #ffffff36;
+  text-decoration: none;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.2rem;
+  font-size: 14px;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: text-decoration 0.2s;
+  transition:
+    transform 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.08s linear;
 }
 
 .review-footer a:hover {
-  text-decoration: underline;  /* underline only on hover */
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 9px #0000003d,
+    3px 6px #0000003d,
+    -3px 6px #0000003d,
+    inset 0 3px #ffffff4a;
+  filter: brightness(1.06);
 }
 
+.review-footer a:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    inset 0 3px #00000038;
+}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 980px) {
   .review-page {
+    width: 90%;
     margin: 20px auto;
   }
 
   .review-content {
     flex-direction: column;
-    gap: 15px;
-    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+    margin-left: 0;
+    transform: none;
   }
 
+  .review-header-box,
   .photo-box,
   .text-box {
     width: 100%;
@@ -159,5 +248,19 @@ body.has-bg::before {
 
   .photo-box img {
     width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .review-header-box, .photo-box, .text-box {
+    padding: 12px;
+  }
+
+  .review-header-box h1, .book-category {
+    font-size: 1.1rem;
+  }
+
+  .text-box p, .personal-note {
+    font-size: 0.95rem;
   }
 }

@@ -4,10 +4,6 @@
 fetch("./content.json")
   .then(res => res.json())
   .then(data => {
-    // Profile photo
-    const profilePhoto = document.getElementById("profile-photo");
-    if (profilePhoto) profilePhoto.src = data.profilePhoto;
-
     // Last updated
     const lastUpdated = document.getElementById("last-updated");
     if (lastUpdated) lastUpdated.textContent = data.lastUpdated;
@@ -15,6 +11,10 @@ fetch("./content.json")
     // Visitor count
     const visitorCount = document.getElementById("visitor-count");
     if (visitorCount) visitorCount.textContent = data.visitorCount;
+
+    // Email note text
+    const emailNote = document.getElementById("email-note");
+    if (emailNote && data.emailNote) emailNote.textContent = data.emailNote;
 
     // Intro note with line breaks
     const introNote = document.getElementById("intro-note");
@@ -40,6 +40,7 @@ fetch("./content.json")
         const a = document.createElement("a");
         a.href = item.link;
         a.textContent = item.label;
+        a.className = "pixel-button";
         nav.appendChild(a);
       });
     }

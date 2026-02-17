@@ -1,3 +1,33 @@
+:root {
+  /* Core ink + paper */
+  --ink: #2f241d;
+  --paper: #e8d7c5;
+  --paper-2: #dcc5ae;
+
+  /* Warm retro accents */
+  --accent: #f8b66b;
+  --accent-soft: #ffd8a8;
+  --retro-peach: #f7c6a3;
+  --retro-apricot: #ffb7a5;
+
+  /* Pastels */
+  --pastel-green: #cfeec8;
+  --pastel-green-2: #b9e3b3;
+
+  --pastel-purple: #daccf3;
+  --pastel-purple-2: #cdb9ea;
+
+  --pastel-lilac: #e8ddfb;
+  --pastel-blue: #cfe3ff;
+  --pastel-pink: #f6c1c7;
+  --pastel-yellow: #f6e7a1;
+  --pastel-dark-blue: #a2bed4;
+
+  /* Dusty 90s tones */
+  --dusty-teal: #8db6a1;
+  --dusty-mauve: #c49ab3;
+  --pixel-shadow: #1e1611;
+}
 /* ---------- BACKGROUND ---------- */
 body.has-bg {
   background: none;
@@ -8,46 +38,52 @@ body.has-bg::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("poetry/plainpix.jpg");
-  background-size: cover;
+  background-image: url("poetry/plainpix.jpg"); /* pastel retro pattern */
+  background-size: 120%;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 1;
-  z-index: -1;
-  filter: brightness(0.85) saturate(0.7);
 
+  /* pastel overlay for softness */
+  background-color: rgba(240, 220, 230, 0.25);
+  background-blend-mode: lighten;
+
+  filter: brightness(1.1) saturate(1.2);
+  z-index: -1;
 }
 
 /* ---------- BASE ---------- */
 body {
   font-family: 'Courier New', Courier, monospace;
-  color: #2e1f17;
+  color: #3b2a22;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
 
 .poetry-page {
   width: min(1000px, calc(100% - 32px));
   margin: 40px auto;
-  padding: 0;
+  padding: 16px 24px;
   box-sizing: border-box;
 }
 
 /* ---------- HEADER ---------- */
 .poetry-header-box {
-  border: 2px solid #3b2a22;
+  border: 3px solid #3b2a22;
   width: min(700px, 100%);
-  padding: 12px;
-  margin-bottom: 28px;
+  padding: 18px 24px;
+  margin-bottom: 32px;
   margin-inline: auto;
   box-sizing: border-box;
-  background: rgb(233, 215, 200);
+  background: var(--accent-soft);
+  box-shadow: 5px 5px 0 #1e1611; /* pixel shadow */
+  text-align: center;
 }
 
 .poetry-header-box h1 {
   margin: 0 0 8px 0;
-  border-bottom: 1px dashed #3b2a22;
-  padding-bottom: 4px;
+  border-bottom: 2px dashed #3b2a22; /* keep your original line style */
+  padding-bottom: 6px;
   letter-spacing: 2px;
   color: #3f4348;
 }
@@ -55,43 +91,64 @@ body {
 .poetry-note {
   font-size: 0.95rem;
   opacity: 1;
+  margin-top: 8px;
+  padding: 0; /* removed highlight and left border */
 }
 
-/* ---------- LIST LAYOUT ---------- */
+/* ---------- TOP RIGHT EMAIL NOTE ---------- */
+.mail-note {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  width: 320px;
+  max-width: calc(100vw - 24px);
+  z-index: 10;
+}
+
+.mail-note a.btn {
+  display: block;
+  padding: 29px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  background: #ffea9d;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 #1e1611;
+  line-height: 1.35;
+  font-size: 0.9rem;
+  transform: rotate(-1deg);
+}
+
+/* ---------- POEMS LIST ---------- */
 .poetry-list {
   width: min(700px, 100%);
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-/* both boxes same size */
+/* ---------- POETRY BOX ---------- */
 .poetry-box {
-  flex: 1 1 0;
-  min-width: 0;
-  border: 2px solid #3b2a22;
-  padding: 12px;
-  background: rgb(233, 215, 200);
+  border: 3px solid #3b2a22; /* border only */
+  padding: 16px;
+  background: var(--dusty-mauve); /* pastel lilac */
+  box-shadow: 4px 4px 0; /* pixel shadow */
   box-sizing: border-box;
 }
 
-/* box titles */
 .poetry-box-title {
   margin-top: 0;
-  border-bottom: 1px dashed #3b2a22; /* subtle line */
-    border-image: repeating-linear-gradient(
-    to right,
-    #3b2a22 0 6px,
-    transparent 6px 12px
-    ) 1;
-  padding-bottom: 4px;
+  border-bottom: 2px dashed #3b2a22; /* keep subtle line */
+  padding-bottom: 6px;
   letter-spacing: 1px;
   color: #3f4348;
+  font-size: 1.5rem;
 }
 
-/* ---------- CATEGORY INSIDE BOX ---------- */
 .category {
   margin-top: 20px;
-  padding-top: 12px;
-  border-top: 1px dashed #3b2a22;
+  padding-top: 16px;
+  border-top: 2px dashed #3b2a22;
 }
 
 .category:first-child {
@@ -100,67 +157,89 @@ body {
   margin-top: 12px;
 }
 
-/* ---------- FOOTER ---------- */
-.poetry-footer {
-  margin-top: 32px;
-  text-align: center;
+/* ---------- POEM LINKS / TEXT ---------- */
+.book {
+  margin-bottom: 12px;
 }
 
-.poetry-footer a {
+.book a.read-link {
+  color: var(--accent-soft); /* green */
+  font-style: italic;
   text-decoration: none;
-  color: beige;
+  padding: 0; /* remove highlight */
+  font-size: 1rem;
 }
 
-.poetry-footer a:hover {
+.book a.read-link:hover {
   text-decoration: underline;
+  background: none; /* no background highlight on hover */
 }
-/* add a line between title and note */
-.poetry-header-box h1 {
-  margin-bottom: 8px;
-  letter-spacing: 2px;
-  border-bottom: 1px dashed #3b2a22; /* subtle line */
-    border-image: repeating-linear-gradient(
-    to right,
-    #3b2a22 0 6px,
-    transparent 6px 12px
-    ) 1;
-  padding-bottom: 4px;
-}
-.poetry-footer {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 1.2rem;
-  color: beige;
-  font-family: 'Courier New', Courier, monospace;
-  width: 100%;
-  box-sizing: border-box;
-}
+
+/* ---------- FOOTER ---------- */
 .poetry-footer-note {
   margin-top: 40px;
   text-align: center;
   font-size: 1.2rem;
   color: beige;
   font-family: 'Courier New', Courier, monospace;
-  width: 100%;
-  box-sizing: border-box;
 }
-.read-link {
-  color: #2e1f17;   /* same dark brown/black as text */
+
+.poetry-footer {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.poetry-footer a {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 40px;
   text-decoration: none;
+  color: var(--ink);
+  background: var(--paper);
+  border: 0;
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 6px #00000038,
+    3px 3px #00000038,
+    -3px 3px #00000038,
+    inset 0 3px #ffffff36;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition:
+    transform 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.08s linear;
 }
 
-.read-link:hover {
-  text-decoration: underline;
+.poetry-footer a:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 9px #0000003d,
+    3px 6px #0000003d,
+    -3px 6px #0000003d,
+    inset 0 3px #ffffff4a;
+  filter: brightness(1.06);
 }
 
-.book {
-  margin-bottom: 10px;
+.poetry-footer a:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    inset 0 3px #00000038;
 }
-
-.book:last-child {
-  margin-bottom: 0;
-}
-
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 950px) {
@@ -170,6 +249,23 @@ body {
 }
 
 @media (max-width: 900px) {
+  body.has-bg::before {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mail-note {
+    position: static;
+    width: min(330px, 92%);
+    max-width: 92%;
+    margin: 2px 0 14px auto;
+  }
+
+  .mail-note a.btn {
+    transform: rotate(-1.4deg);
+    text-align: center;
+  }
+
   .poetry-box {
     width: 100%;
   }

@@ -1,35 +1,64 @@
-/* ---------- FONTS ---------- */
-#logo {
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;          /* makes it thicker like a title */
-  letter-spacing: 2px;        /* wider spacing for typewriter/book feel */
-  color: #3f4348;
-  text-shadow: 2px 2px 0 #f0c19a; /* keeps your 90s shadow */
+/* ---------- RETRO THEME ---------- */
+:root {
+  /* Core ink + paper */
+  --ink: #2f241d;
+  --paper: #e8d7c5;
+  --paper-2: #dcc5ae;
+
+  /* Warm retro accents */
+  --accent: #f8b66b;
+  --accent-soft: #ffd8a8;
+  --retro-peach: #f7c6a3;
+  --retro-apricot: #ffb7a5;
+
+  /* Pastels */
+  --pastel-green: #cfeec8;
+  --pastel-green-2: #b9e3b3;
+
+  --pastel-purple: #daccf3;
+  --pastel-purple-2: #cdb9ea;
+
+  --pastel-lilac: #e8ddfb;
+  --pastel-blue: #cfe3ff;
+  --pastel-pink: #f6c1c7;
+  --pastel-yellow: #f6e7a1;
+
+  /* Dusty 90s tones */
+  --dusty-teal: #8db6a1;
+  --dusty-mauve: #c49ab3;
+  --pixel-shadow: #1e1611;
 }
+
+
 
 body {
   margin: 0;
-  color: #3b2a22;
-  font-family: 'Courier New', Courier, monospace;
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+  background: #0d1018;
 }
-
 /* ---------- BACKGROUND ---------- */
 body.has-bg {
-  background: none; /* no image on body itself */
-  position: relative; /* needed for pseudo element layering */
+  background: #0d1018;
+  position: relative;
 }
 
 body.has-bg::before {
   content: "";
   position: fixed;
-  inset: 0;
-  background-image: url("images/image.jpg"); /* your photo */
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: 100vw;
+  background-image: url("images/bg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 1; /* adjust opacity here (0-1) */
-  filter: brightness(0.85) saturate(0.5);
-  z-index: -1;
+  filter: brightness(0.8) saturate(0.5);
+  transform: translate(-50%, -50%) rotate(90deg);
+  transform-origin: center;
+  pointer-events: none;
+  z-index: -4;
 }
 
 /* ---------- PAGE ---------- */
@@ -39,225 +68,286 @@ body.has-bg::before {
   margin: 0 auto;
 }
 
-/* ---------- BOX BASE ---------- */
-.header-box,
-.photo-box,
-.text-box {
-  background: rgb(233, 215, 200);
-  border: 2px solid #3b2a22;
-  padding: 15px 25px;
-  margin-bottom: 25px;
+.home-page {
+  position: relative;
+  padding-top: 20px;
+}
+
+.home-page > *:not(.mail-note) {
+  margin-bottom: 32px;
+}
+
+.home-page > *:not(.mail-note):last-child {
+  margin-bottom: 0;
+}
+
+.top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+/* OUTER WRAPPER CENTERING */
+.outer-wrapper {
+  min-height: 10vh;
+  display: flex;
+  align-items: center;      /* vertical centering */
+  justify-content: center;
+  padding-top: 60px;        /* slight push down */
+  padding-bottom: 60px;
 }
 
 /* ---------- HEADER ---------- */
+#logo {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #3f4348;
+  text-shadow: 2px 2px 0 var(--accent);
+}
+/* ---------- HEADER ---------- */
 .header-box {
-  font-family: 'Courier New', Courier, monospace;
+  background: var(--retro-peach);  /* soft peach background */
+  border: 3px solid var(--ink);    /* keep pixel-style border */
+  box-shadow: 4px 4px 0 var(--pixel-shadow); /* pixel shadow */
   display: flex;
   justify-content: space-between;
-  align-items: center;      
-  background:rgb(233, 215, 200);
-  border: 2px solid #3b2a22;
-  padding: 5px 15px;        
-  margin-bottom: 45px;
-  height: auto;             
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
+  align-items: center;
+  padding: 25px 14px;
+  margin: 0;
 }
-.header-box {
-  width: 100%; /* take the full width of .page */
+
+/* Header text */
+#logo,
+#visitor-count {
+  color: var(--ink);  /* brownish text */
+}
+
+.text-box {
+  background: var(--pastel-purple);
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 #1e1611;
   box-sizing: border-box;
+  width: 100%;
+}
+
+.header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 14px;
+  margin: 0;
 }
 
 #visitor-count {
   font-size: 0.9rem;
-  color: #3b2a22;
 }
 
-/* ---------- CONTENT WRAPPER ---------- */
+/* ---------- TOP RIGHT EMAIL NOTE ---------- */
+.mail-note {
+  position: fixed;
+  top: 20px;
+  right: 80px;
+  width: 320px;
+  max-width: calc(100vw - 24px);
+  z-index: 10;
+}
+
+.mail-note a.btn {
+  display: block;
+  padding: 29px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  /* background: linear-gradient(180deg, #ffe8c5, #f2ca93); */
+  background: #ffea9d;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 #1e1611;
+  line-height: 1.35;
+  font-size: 0.9rem;
+  transform: rotate(-1deg);
+}
+
+/* ---------- INTRO ---------- */
 .content-wrapper {
-  display: flex;
-  justify-content: center; /* center the content under header */
-  max-width: 1000px;       /* match header width */
+  width: 100%;
   margin: 0 auto;
 }
-.content-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%; /* match .page width */
-  box-sizing: border-box;
-}
-
 
 .content {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
   width: 100%;
-  box-sizing: border-box;
-  max-width: 100%;          /* photo + text won't exceed wrapper */
 }
 
-/* ---------- PHOTO BOX ---------- */
-.photo-box {
-  padding: 15px;
-  flex: 0 0 auto;           /* don't stretch */
-}
-
-#profile-photo {
-  width: 300px; /* desktop size */
-  border: 2px solid #3b2a22;
-  image-rendering: pixelated;
-  display: block;
-}
-
-/* ---------- TEXT BOX ---------- */
 .text-box {
-  max-width: calc(100% - 300px - 30px); /* total width minus photo + gap */
-  width: 100%;
-  box-sizing: border-box; 
+  margin-bottom: 0;
+  padding: 12px;
 }
 
 .text-box #intro-note {
-  border: 2px dashed #3b2a22; /* the frame */
-  padding: 10px;               /* space between text and frame */
-  margin: 10px;              /* space from the box edges */
-  text-align: center;          /* optional */
+  margin: 0;
+  border: 2px dashed var(--ink);
+  padding: 12px;
+  text-align: center;
   line-height: 1.6;
-  background: rgb(233, 215, 200); /* optional: match box background */
-}
-
-
-.divider,
-.dots {
-  font-family: 'Courier New', Courier, monospace;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-#intro-note {
-  line-height: 1.6;
-  margin: 15px 0;
-}
-#intro-note {
+  background: var(--pastel-purple);
   white-space: pre-line;
 }
 
 #intro-note em {
-  display: block;      /* makes it a separate line */
-  font-size: 1.1em;    /* slightly bigger */
-  margin-top: 10px;    /* some space from the line above */
-  text-align: center;  /* optional, center it */
+  display: block;
+  font-size: 1.08em;
+  margin-top: 10px;
+  text-align: center;
 }
 
 /* ---------- NAV ---------- */
 .nav-footer {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 0;
 }
 
-#nav-buttons a,
-.mail-box a.btn {
+.pixel-button {
   display: inline-block;
-  margin: 16px;
-  padding: 8px 16px;
-  background: rgb(233, 215, 200);
-  color: #3b2a22;
+  margin: 10px;
+  padding: 15px 40px;
   text-decoration: none;
-  border: 1px solid #3b2a22;
-  box-shadow: 3px 3px 0 #3b2a22;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace; 
+  color: var(--ink);
+  background: #a8b8a1;
+  border: 0;
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 6px #00000038,
+    3px 3px #00000038,
+    -3px 3px #00000038,
+    inset 0 3px #ffffff36;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  text-transform: lowercase;
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: transform 0.1s, box-shadow 0.1s;
+  transition:
+    transform 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.08s linear;
 }
 
-#nav-buttons a:hover,
-.mail-box a.btn:hover {
-  transform: translate(1px, 1px);
-  box-shadow: 2px 2px 0 #000000;
+.pixel-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 9px #0000003d,
+    3px 6px #0000003d,
+    -3px 6px #0000003d,
+    inset 0 3px #ffffff4a;
+  filter: brightness(1.06);
+}
+
+.pixel-button:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    inset 0 3px #00000038;
 }
 
 /* ---------- FOOTER ---------- */
 .last-updated {
   text-align: center;
-  font-size: 1.2rem;
-  color: #dcdcdc;
-  background: rgba(59, 42, 34, 0.1);
-  padding: 40px 0;
-  margin-top: 12px;
+  font-size: 1.1rem;
+  color: rgb(255, 255, 255);
+  /* background: rgba(47, 36, 29, 0.3); */
+  /* border: 2px solid rgb(49, 35, 19); */
+  padding: 18px 8px;
+  margin-top: 0;
 }
 
-/* ---------- MOBILE ---------- */
-@media (max-width: 700px) {
-  body.has-bg::before {
-    background-attachment: scroll;
-  }
-
-  .content {
-    flex-direction: column;
-    align-items: center;     
-    gap: 5px;
-    padding: 5px 15px;
-    box-sizing: border-box;
-  }
-
-  .header-box {
-    width: calc(100% - 30px);
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 20px;
-  }
-
-  .photo-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;     
-    padding: 20px;           
-    width: 100%;
-    box-sizing: border-box;  
-    background: rgb(233, 215, 200);
-    border: 2px solid #3b2a22;
-    overflow: hidden;        
-  }
-
-  #profile-photo {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: calc(100% - 40px);
-    object-fit: contain;     
-    display: block;
-  }
-
-  .text-box {
-    max-width: 100%;
-    padding: 15px 20px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: center;
-  }
+/* ---------- UTIL ---------- */
+.divider,
+.dots {
+  white-space: nowrap;
+  overflow: hidden;
 }
+
 .divider-line {
   height: 2px;
   width: 60%;
   margin: 12px auto;
-  background: #3b2a22;
+  background: var(--ink);
   animation: breathe 4s ease-in-out infinite;
   transform-origin: center;
   opacity: 0.8;
 }
 
-/* subtle grow + shrink */
 @keyframes breathe {
-  0%   { width: 55%; opacity: 0.6; }
-  50%  { width: 75%; opacity: 1; }
+  0% { width: 55%; opacity: 0.6; }
+  50% { width: 75%; opacity: 1; }
   100% { width: 55%; opacity: 0.6; }
 }
 
 #stars {
   position: fixed;
   inset: 0;
-  z-index: -1;       /* behind everything */
-  pointer-events: none; /* clicks go through */
+  z-index: -2;
+  pointer-events: none;
+}
+
+@media (min-width: 901px) {
+  .home-page {
+    padding-top: 48px;
+  }
+
+  .home-page > *:not(.mail-note) {
+    margin-bottom: 60px;
+  }
+
+  .mail-note {
+    top: 220px;
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 900px) {
+  .mail-note {
+    position: static;
+    width: min(330px, 92%);
+    max-width: 92%;
+    margin: 2px 0 14px auto;
+  }
+
+  .mail-note a.btn {
+    transform: rotate(-1.4deg);
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-box {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  #logo {
+    font-size: 1.75rem;
+  }
+
+  .text-box {
+    padding: 10px;
+  }
+}
+/* Keep mobile unchanged */
+@media (max-width: 900px) {
+  .outer-wrapper {
+    display: block;
+    min-height: auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }

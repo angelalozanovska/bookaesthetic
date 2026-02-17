@@ -1,26 +1,58 @@
+:root {
+  /* Core ink + paper */
+  --ink: #2f241d;
+  --paper: #e8d7c5;
+  --paper-2: #dcc5ae;
+
+  /* Warm retro accents */
+  --accent: #f8b66b;
+  --accent-soft: #ffd8a8;
+  --retro-peach: #f7c6a3;
+  --retro-apricot: #ffb7a5;
+
+  /* Pastels */
+  --pastel-green: #cfeec8;
+  --pastel-green-2: #b9e3b3;
+
+  --pastel-purple: #daccf3;
+  --pastel-purple-2: #cdb9ea;
+
+  --pastel-lilac: #e8ddfb;
+  --pastel-blue: #cfe3ff;
+  --pastel-pink: #f6c1c7;
+  --pastel-yellow: #f6e7a1;
+
+  /* Dusty 90s tones */
+  --dusty-teal: #8db6a1;
+  --dusty-mauve: #c49ab3;
+  --pixel-shadow: #1e1611;
+}
+
 /* ---------- BACKGROUND ---------- */
 body.has-bg {
-  background: none; /* no image on body itself */
-  position: relative; /* needed for pseudo element layering */
+  background: none;
+  position: relative;
 }
 
 body.has-bg::before {
   content: "";
   position: fixed;
-  inset: 0;
-  background-image: url("images/brownnp.jpg"); /* your photo */
-  background-size: cover;
-  background-position: center;
+  inset: 0;                     /* cover full screen */
+  background-image: url("images/lineee.jpg");
+  background-size: cover;        /* cover full screen while keeping aspect ratio */
+  background-position: center;   /* center the image */
   background-repeat: no-repeat;
-  opacity: 1; /* adjust opacity here (0-1) */
-  z-index: -1;
-  filter: brightness(0.85) saturate(0.7);
-
+  background-size: 120%;
+  filter: brightness(1) saturate(0.7) contrast(1.05) blur(0.7px) ;
+  background-color: rgba(255, 200, 220, 0.6); /* soft pink, 25% opacity */
+  background-blend-mode: lighten; /* blends with whites in the image */
+  z-index: -1;                   /* behind everything */
 }
+
 /* ---------- BASE ---------- */
 body {
   font-family: 'Courier New', Courier, monospace;
-  color: #2e1f17;
+  color: var(--ink, #2e1f17); /* brown text */
   margin: 0;
   padding: 0;
 }
@@ -29,115 +61,196 @@ body {
 .reviews-page {
   width: 760px;
   margin: 40px auto;
-  padding: 24px;
+  padding: 32px;
 }
 
 /* ---------- HEADER BOX ---------- */
 .reviews-header-box {
-  border: 2px solid #3b2a22;
-  padding: 16px;
+  border: 3px solid #3b2a22;
+  padding: 20px;
   margin-bottom: 32px;
-  /*background: #e7c698;*/
-  background: rgb(233, 215, 200);
+  background: var(--pastel-yellow);
+  box-shadow: 6px 6px 0 #1e1611; /* pixel shadow */
+  position: relative;
 }
 
 .reviews-header-box h1 {
-  margin: 0;
+  margin: 0 0 12px 0;
   letter-spacing: 2px;
-  color: #3f4348;
+  color: #3b2a22; /* brownish text */
+  border-bottom: 1px dashed #3b2a22; 
+  border-image: repeating-linear-gradient(
+    to right,
+    #3b2a22 0 6px,
+    transparent 6px 12px
+  ) 1;
+  padding-bottom: 6px;
 }
 
 .reviews-note {
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin-top: 8px;
-  opacity: 0.85;
-  font-family: 'Courier New', Courier, monospace;
+  opacity: 0.9;
+  padding-left: 6px;
+  padding: 8px 6px;
+}
+
+/* ---------- TOP RIGHT DECOR IMAGE ---------- */
+.corner-image {
+  position: fixed;
+  top: 80px;
+  right: 120px;
+  z-index: 10;
+}
+
+.corner-image img {
+  display: block;
+  width: 172px;
+  height: auto;
+  border: 3px solid var(--ink);
+  box-shadow: 4px 4px 0 #1e1611;
+  transform: rotate(-2deg);
+}
+
+.corner-image-lower {
+  top: 700px;
 }
 
 /* ---------- CATEGORIES BOX ---------- */
 .categories-box {
-  border: 2px solid #3b2a22;
-  padding: 16px;
-  /*background: #e7c698;*/
-  background: rgb(233, 215, 200);
+  border: 3px solid #3b2a22;
+  padding: 24px;
+  background: var(--pastel-blue);
+  box-shadow: 5px 5px 0 #1e1611;
 }
 
 /* ---------- CATEGORY ---------- */
 .category {
-  margin-top: 24px;
+  margin-top: 26px;
   padding-top: 16px;
-  border-top: 1px dashed #3b2a22; /* subtle 90s line */
-    border-image: repeating-linear-gradient(
+  border-top: 1px dashed #3b2a22;
+  border-image: repeating-linear-gradient(
     to right,
     #3b2a22 0 6px,
     transparent 6px 12px
-    ) 1;
+  ) 1;
 }
 
 .category-title {
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  font-size: 1.15rem;
   letter-spacing: 1px;
 }
 
-/* remove top border for the first category */
+/* remove top border for first category */
 .category:first-child {
   border-top: none;
   padding-top: 0;
-  margin-top: 16px; /* optional, still a little spacing */
+  margin-top: 16px;
 }
 
 /* ---------- BOOK LIST ---------- */
 .book {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .book-title {
   display: block;
+  padding: 2px 4px;
+  border-radius: 2px;
 }
 
 .book a {
   text-decoration: none;
-  color: #2e1f17;
+  color: #b1414e; /* warm reddish-brown */
+  font-size: 0.96em;
+  font-style: italic;
 }
 
 .book a:hover {
   text-decoration: underline;
+  /*background: #ffd8a8; /* soft hover highlight */
 }
 
 /* ---------- FOOTER ---------- */
+.reviews-footer-note {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--ink);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.ascii {
+  display: block;
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
 .reviews-footer {
   margin-top: 32px;
   text-align: center;
 }
 
 .reviews-footer a {
+  display: inline-block;
+  margin: 10px;
+  padding: 15px 40px;
   text-decoration: none;
-  color: beige;
+  color: var(--ink);
+  background: var(--paper);
+  border: 0;
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 6px #00000038,
+    3px 3px #00000038,
+    -3px 3px #00000038,
+    inset 0 3px #ffffff36;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition:
+    transform 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow 0.08s cubic-bezier(0.2, 0.9, 0.2, 1),
+    filter 0.08s linear;
 }
 
 .reviews-footer a:hover {
-  text-decoration: underline;
-}
-/* add a line between title and note */
-.reviews-header-box h1 {
-  margin-bottom: 8px;
-  letter-spacing: 2px;
-  border-bottom: 1px dashed #3b2a22; /* subtle line */
-    border-image: repeating-linear-gradient(
-    to right,
-    #3b2a22 0 6px,
-    transparent 6px 12px
-    ) 1;
-  padding-bottom: 4px;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow:
+    0 4px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    0 9px #0000003d,
+    3px 6px #0000003d,
+    -3px 6px #0000003d,
+    inset 0 3px #ffffff4a;
+  filter: brightness(1.06);
 }
 
-/* make note stand out more */
-.reviews-note {
-  font-size: 0.95rem;
-  margin-top: 12px;
-  opacity: 0.9;
-  padding-left: 6px;        /* small indent */
+.reviews-footer a:active {
+  transform: translateY(3px);
+  box-shadow:
+    0 3px #1e1611,
+    0 -3px #1e1611,
+    3px 0 #1e1611,
+    -3px 0 #1e1611,
+    inset 0 3px #00000038;
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -161,24 +274,10 @@ body {
     font-size: 0.9rem;
   }
 }
-.reviews-footer-note {
-  margin-top: 40px;
-  text-align: center;
-  font-size: 1.2rem;
-  color: beige;
-  font-family: 'Courier New', Courier, monospace;
-}
 
-.ascii {
-  display: block;
-  margin-top: 4px;
-  letter-spacing: 2px;
-}
-
-.blink {
-  animation: blink 1s step-start infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
+@media (max-width: 1500px) {
+  .corner-image,
+  .corner-image-lower {
+    display: none;
+  }
 }
